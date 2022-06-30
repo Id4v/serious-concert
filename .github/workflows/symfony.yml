@@ -5,7 +5,7 @@ on:
             - main
 
 ## Add environment variables below
-env: ~
+#env: ~
 
 jobs:
     symfony:
