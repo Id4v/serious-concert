@@ -1,0 +1,32 @@
+name: CI process pour Symfony
+on:
+    push:
+        branches:
+            - main
+
+## Add environment variables below
+env: ~
+
+jobs:
+    symfony:
+        name: Test & deploy Symfony on PHP ${{ matrix.php-versions }}
+        runs-on: ubuntu-22.04
+        services:
+            mysql:
+                image: mysql:5.7
+                env:
+                    MYSQL_ROOT_PASSWORD: root
+                ports:
+                    - 3306:3306
+                options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+        strategy:
+            fail-fast: true
+            matrix:
+                php-versions: ['8.1']
+        steps:
+            -
+                name: Checkout
+                uses: actions/checkout@v3
+
+
+
