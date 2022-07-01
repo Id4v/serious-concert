@@ -33,7 +33,7 @@ jobs:
                 name: Setup PHP environment
                 uses: shivammathur/setup-php@v2
                 with:
-                    php-version: ${{ matrix.php_versions }}
+                    php-version: ${{ matrix.php-versions }}
                     extensions: mbstring, xml, ctype, iconv, intl, pdo, pdo_mysql, dom, filter, gd, iconv, json, mbstring
                 env:
                     update: true
